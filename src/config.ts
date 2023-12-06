@@ -1,5 +1,6 @@
 export default {
   port: 3000,
+  transparent: false,
   canvasHeight: 250,
   canvasWidth: 900,
   fontSize: 84,

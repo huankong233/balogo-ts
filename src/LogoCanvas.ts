@@ -24,7 +24,7 @@ interface queryParams {
   textR?: string
   graphX?: number
   graphY?: number
-  transparent?: string
+  transparent?: string | boolean
 }
 
 export class LogoCanvas {
@@ -48,18 +48,19 @@ export class LogoCanvas {
 
   #font = `${config.fontSize}px GlowSansSC-Normal-Heavy, apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif`
 
-  constructor(query: queryParams) {
+  constructor(query: queryParams, body: queryParams) {
     this.#canvas = createCanvas(config.canvasWidth, config.canvasHeight)
     this.#ctx = this.#canvas.getContext('2d')
 
-    this.#textL = query.textL ?? 'Blue'
-    this.#textR = query.textR ?? 'Archive'
+    this.#textL = query.textL ?? body.textL ?? 'Blue'
+    this.#textR = query.textR ?? body.textR ?? 'Archive'
     this.#graphOffset = {
-      X: query.graphX ?? config.graphOffset.X,
-      Y: query.graphY ?? config.graphOffset.Y
+      X: query.graphX ?? body.graphX ?? config.graphOffset.X,
+      Y: query.graphY ?? body.graphY ?? config.graphOffset.Y
     }
 
-    this.#transparent = query.transparent ? query.transparent === 'true' : false
+    const transparent = query.transparent ?? body.transparent
+    this.#transparent = transparent ? transparent.toString() === 'true' : config.transparent
   }
 
   async draw() {

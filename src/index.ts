@@ -1,5 +1,5 @@
 import Koa from 'koa'
-import bodyParser from 'koa-bodyparser'
+import { koaBody } from 'koa-body'
 import config from './config.ts'
 import { LogoCanvas, init } from './LogoCanvas.ts'
 
@@ -7,10 +7,10 @@ await init()
 
 const app = new Koa()
 
-app.use(bodyParser())
+app.use(koaBody({ multipart: true }))
 
 app.use(async ctx => {
-  const logo = new LogoCanvas(ctx.request.query)
+  const logo = new LogoCanvas(ctx.request.query, ctx.request.body as any)
   const image = await logo.draw()
 
   if (ctx.request.query.type === 'json') {
