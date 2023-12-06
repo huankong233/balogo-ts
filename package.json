@@ -1,0 +1,32 @@
+{
+  "name": "balogo-ts",
+  "version": "1.0.0",
+  "description": "balogo生成器",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon",
+    "run": "tsx src/index.ts"
+  },
+  "keywords": [
+    "ba",
+    "blue archive",
+    "logo",
+    "api"
+  ],
+  "author": "huan_kong",
+  "license": "MIT",
+  "dependencies": {
+    "canvas": "^2.11.2",
+    "koa": "^2.14.2",
+    "koa-bodyparser": "^4.4.1",
+    "tsx": "^4.6.2"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.13.12",
+    "@types/koa-bodyparser": "^4.3.12",
+    "@types/node": "^20.10.3",
+    "nodemon": "^3.0.2",
+    "typescript": "^5.3.2"
+  }
+}
