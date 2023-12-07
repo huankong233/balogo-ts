@@ -8,6 +8,9 @@ dependencies:
   canvas:
     specifier: ^2.11.2
     version: 2.11.2
+  formidable:
+    specifier: ^3.5.1
+    version: 3.5.1
   koa:
     specifier: ^2.14.2
     version: 2.14.2
@@ -19,6 +22,9 @@ dependencies:
     version: 4.6.2
 
 devDependencies:
+  '@types/formidable':
+    specifier: ^3.4.5
+    version: 3.4.5
   '@types/koa':
     specifier: ^2.13.12
     version: 2.13.12
@@ -305,6 +311,12 @@ packages:
     dependencies:
       '@types/node': 20.10.3
     dev: false
+
+  /@types/formidable@3.4.5:
+    resolution: {integrity: sha512-s7YPsNVfnsng5L8sKnG/Gbb2tiwwJTY1conOkJzTMRvJAlLFW1nEua+ADsJQu8N1c0oTHx9+d5nqg10WuT9gHQ==}
+    dependencies:
+      '@types/node': 20.10.3
+    dev: true
 
   /@types/http-assert@1.5.5:
     resolution: {integrity: sha512-4+tE/lwdAahgZT1g30Jkdm9PzFRde0xwxBNUyRsCitRvCQB90iuA2uJYdUnhnANRcqGXaWOGY4FEoxeElNAK2g==}
@@ -656,6 +668,14 @@ packages:
       hexoid: 1.0.0
       once: 1.4.0
       qs: 6.11.2
+    dev: false
+
+  /formidable@3.5.1:
+    resolution: {integrity: sha512-WJWKelbRHN41m5dumb0/k8TeAx7Id/y3a+Z7QfhxP/htI9Js5zYaEDtG8uMgG0vM0lOlqnmjE99/kfpOYi/0Og==}
+    dependencies:
+      dezalgo: 1.0.4
+      hexoid: 1.0.0
+      once: 1.4.0
     dev: false
 
   /fresh@0.5.2:

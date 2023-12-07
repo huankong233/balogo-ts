@@ -32,20 +32,25 @@
 
 ## 请求参数
 
-| 参数名        | 类型      | 介绍                                      | 默认值    |
-| ------------- | --------- | ----------------------------------------- | --------- |
-| `textL`       | `string`  | 左侧文本                                  | `Blue`    |
-| `textR`       | `string`  | 右侧文本                                  | `Archive` |
-| `graphX`      | `number`  | 光环 `X` 方向位移                         | `-15`     |
-| `graphY`      | `number`  | 光环 `Y` 方向位移                         | `0`       |
-| `transparent` | `boolean` | 背景透明                                  | `false`   |
-| `bgColor`     | `string`  | 背景颜色 需要非透明                       | `#fff`    |
-| `textLColor`  | `string`  | 左侧文本颜色                              | `#128AFA` |
-| `textRColor`  | `string`  | 右侧文本颜色                              | `#2B2B2B` |
-| `hideHalo`    | `boolean` | 隐藏 `Halo`                               | `false`   |
-| `hideCross`   | `boolean` | 隐藏 `Cross`                              | `false`   |
-| `type`        | `string`  | 是否使用 `JSON` 输出                      | `image`   |
-| `encode`      | `string`  | 使用 `JSON` 输出的格式 (`Buffer`可用格式) | `base64`  |
+| 参数名        | 类型      | 介绍                                      | 默认值                                     |
+| ------------- | --------- | ----------------------------------------- | ------------------------------------------ |
+| `textL`       | `string`  | 左侧文本                                  | `Blue`                                     |
+| `textR`       | `string`  | 右侧文本                                  | `Archive`                                  |
+| `graphX`      | `number`  | 光环 `X` 方向位移                         | `-15`                                      |
+| `graphY`      | `number`  | 光环 `Y` 方向位移                         | `0`                                        |
+| `transparent` | `boolean` | 背景透明                                  | `false`                                    |
+| `bgColor`     | `string`  | 背景颜色 需要非透明                       | `#fff`                                     |
+| `textLColor`  | `string`  | 左侧文本颜色                              | `#128AFA`                                  |
+| `textRColor`  | `string`  | 右侧文本颜色                              | `#2B2B2B`                                  |
+| `hideHalo`    | `boolean` | 隐藏 `Halo`                               | `false`                                    |
+| `hideCross`   | `boolean` | 隐藏 `Cross`                              | `false`                                    |
+| `type`        | `string`  | 是否使用 `JSON` 输出                      | `image`                                    |
+| `encode`      | `string`  | 使用 `JSON` 输出的格式 (`Buffer`可用格式) | `base64`                                   |
+| `bgImage`     | `File`    | 背景图片 需要使用表单提交                 | `undefined`                                |
+| `bgImageX`    | `Number`  | 背景图片 X 坐标                           | `0`                                        |
+| `bgImageY`    | `Number`  | 背景图片 Y 坐标                           | `0`                                        |
+| `bgImageW`    | `Number`  | 背景图片 宽度                             | `画布宽度` 如果设置了X或Y则为 `画布宽度-X` |
+| `bgImageH`    | `Number`  | 背景图片 高度                             | `画布高度` 如果设置了X或Y则为 `画布高度-Y` |
 
 ## 存在问题
 

@@ -10,7 +10,7 @@ const app = new Koa()
 app.use(koaBody({ multipart: true }))
 
 app.use(async ctx => {
-  const logo = new LogoCanvas(ctx.request.query, ctx.request.body as any)
+  const logo = new LogoCanvas(ctx.request.query, ctx.request.body as any, ctx.request.files)
   const image = await logo.draw()
 
   switch (ctx.request.query.type ?? ctx.request.body.type ?? 'image') {

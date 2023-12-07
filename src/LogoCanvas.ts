@@ -1,4 +1,5 @@
 import type { Canvas, CanvasRenderingContext2D } from 'canvas'
+import type { File } from 'formidable'
 import { createCanvas, loadImage, registerFont } from 'canvas'
 import config from './config.ts'
 import path from 'path'
@@ -32,6 +33,10 @@ interface queryParams {
   hideCross?: string | boolean
   canvasWidth?: string | number
   canvasHeight?: string | number
+  bgimageX?: string | number
+  bgimageY?: string | number
+  bgimageW?: string | number
+  bgimageH?: string | number
 }
 
 export class LogoCanvas {
@@ -62,7 +67,15 @@ export class LogoCanvas {
   #hideHalo: boolean = config.hideHalo
   #hideCross: boolean = config.hideCross
 
-  constructor(query: queryParams, body: queryParams) {
+  #bgImage: File | null = null
+
+  #bgImageX: number
+  #bgImageY: number
+
+  #bgImageW: number
+  #bgImageH: number
+
+  constructor(query: queryParams, body: queryParams, files: { bgImage?: File | undefined } = {}) {
     this.#canvas = createCanvas(config.canvasWidth, config.canvasHeight)
     this.#ctx = this.#canvas.getContext('2d')
 
@@ -84,6 +97,13 @@ export class LogoCanvas {
 
     this.#hideHalo = (query.hideHalo ?? body.hideHalo ?? config.hideHalo).toString() === 'true'
     this.#hideCross = (query.hideCross ?? body.hideCross ?? config.hideCross).toString() === 'true'
+
+    this.#bgImage = files.bgImage ?? null
+
+    this.#bgImageX = parseInt((query.bgimageX ?? body.bgimageX ?? config.bgimageX).toString())
+    this.#bgImageY = parseInt((query.bgimageY ?? body.bgimageY ?? config.bgimageY).toString())
+    this.#bgImageW = parseInt((query.bgimageW ?? body.bgimageW ?? 0).toString())
+    this.#bgImageH = parseInt((query.bgimageH ?? body.bgimageH ?? 0).toString())
   }
 
   async draw() {
@@ -100,6 +120,21 @@ export class LogoCanvas {
     if (!this.#transparent) {
       this.#ctx.fillStyle = this.#bgColor
       this.#ctx.fillRect(0, 0, this.#canvas.width, this.#canvas.height)
+      if (this.#bgImage) {
+        // 重新计算 bgImage 的宽高
+        this.#bgImageW =
+          this.#bgImageW !== 0 ? this.#bgImageW : this.#canvas.width - this.#bgImageX ?? 0
+        this.#bgImageH =
+          this.#bgImageH !== 0 ? this.#bgImageH : this.#canvas.height - this.#bgImageY ?? 0
+
+        this.#ctx.drawImage(
+          await loadImage(this.#bgImage.filepath),
+          this.#bgImageX,
+          this.#bgImageY,
+          this.#bgImageW,
+          this.#bgImageH
+        )
+      }
     }
 
     //blue text -> halo -> black text -> cross
@@ -127,10 +162,18 @@ export class LogoCanvas {
       this.#ctx.globalCompositeOperation = 'destination-out'
     }
 
-    this.#ctx.strokeStyle = this.#bgColor
-    this.#ctx.lineWidth = 12
+    if (!this.#bgImage) {
+      this.#ctx.strokeStyle = this.#bgColor
+      this.#ctx.lineWidth = 12
+      this.#ctx.strokeText(
+        this.#textR,
+        this.#canvasWidthL,
+        this.#canvas.height * config.textBaseLine
+      )
+    }
+
     this.#ctx.setTransform(1, 0, config.horizontalTilt, 1, 0, 0)
-    this.#ctx.strokeText(this.#textR, this.#canvasWidthL, this.#canvas.height * config.textBaseLine)
+
     this.#ctx.globalCompositeOperation = 'source-over'
     this.#ctx.fillText(this.#textR, this.#canvasWidthL, this.#canvas.height * config.textBaseLine)
     this.#ctx.resetTransform()
@@ -156,9 +199,12 @@ export class LogoCanvas {
       this.#ctx.globalCompositeOperation = 'destination-out'
     }
 
-    this.#ctx.fillStyle = this.#bgColor
-    this.#ctx.fill()
-    this.#ctx.globalCompositeOperation = 'source-over'
+    if (!this.#bgImage) {
+      this.#ctx.fillStyle = this.#bgColor
+      this.#ctx.fill()
+      this.#ctx.globalCompositeOperation = 'source-over'
+    }
+
     if (!this.#hideCross) {
       this.#ctx.drawImage(
         global.cross,

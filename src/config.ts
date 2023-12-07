@@ -4,6 +4,8 @@ export default {
   bgColor: '#fff',
   textLColor: '#128AFA',
   textRColor: '#2B2B2B',
+  bgimageX: 0,
+  bgimageY: 0,
   hideHalo: false,
   hideCross: false,
   canvasHeight: 250,
