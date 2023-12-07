@@ -1,12 +1,13 @@
 {
   "name": "balogo-ts",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "balogo生成器",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "dev": "nodemon",
-    "run": "tsx src/index.ts"
+    "start": "tsx src/index.ts",
+    "docker": "pnpm install && pnpm run start"
   },
   "keywords": [
     "ba",

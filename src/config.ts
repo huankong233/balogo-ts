@@ -1,6 +1,11 @@
 export default {
   port: 3000,
   transparent: false,
+  bgColor: '#fff',
+  textLColor: '#128AFA',
+  textRColor: '#2B2B2B',
+  hideHalo: false,
+  hideCross: false,
   canvasHeight: 250,
   canvasWidth: 900,
   fontSize: 84,
