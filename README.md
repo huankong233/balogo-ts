@@ -57,7 +57,7 @@
 | `subtitleAlign`    | `string`  | 副标题对齐方式                            | `center`                                   |
 | `crossColor`       | `string`  | 十字架颜色                                | `#128AFA`                                  |
 | `haloColor`        | `string`  | 光环颜色                                  | `#2B2B2B`                                  |
-| `textBaseLine`     | `number`  | 精确到第二位的小数                        | `0.68`                                     |
+| `textBaseLine`     | `number`  | 文字绘制基线 精确到第二位的小数           | `0.68`                                     |
 | `horizontalTilt`   | `number`  | 倾斜度 需要是负数                         | `-0.4`                                     |
 
 ## 存在问题

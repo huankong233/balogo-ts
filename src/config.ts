@@ -19,7 +19,7 @@ export default {
   paddingX: process.env.paddingX ?? 10,
   textBaseLine: process.env.textBaseLine ?? 0.68,
   horizontalTilt: process.env.horizontalTilt ?? -0.4,
-  graphOffset: { X: -15, Y: 0 },
+  graphOffset: { X: process.env.graphX ?? -15, Y: process.env.graphY ?? 0 },
   hollowPath: [
     [284, 136],
     [321, 153],
