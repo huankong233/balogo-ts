@@ -20,11 +20,9 @@
 
 ### `docker` 部署
 
-1.获取镜像 `https://hub.docker.com/r/huankong233/balogo-ts`
+1.获取镜像 `https://hub.docker.com/r/huankong233/balogo-ts`即可启动
 
-2.克隆项目
-
-3.映射项目路径到 `/balogo-ts` 即可启动
+配置文件可以使用环境变量
 
 ## 请求路径
 
