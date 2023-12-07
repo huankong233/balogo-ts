@@ -30,25 +30,35 @@
 
 ## 请求参数
 
-| 参数名        | 类型      | 介绍                                      | 默认值                                     |
-| ------------- | --------- | ----------------------------------------- | ------------------------------------------ |
-| `textL`       | `string`  | 左侧文本                                  | `Blue`                                     |
-| `textR`       | `string`  | 右侧文本                                  | `Archive`                                  |
-| `graphX`      | `number`  | 光环 `X` 方向位移                         | `-15`                                      |
-| `graphY`      | `number`  | 光环 `Y` 方向位移                         | `0`                                        |
-| `transparent` | `boolean` | 背景透明                                  | `false`                                    |
-| `bgColor`     | `string`  | 背景颜色 需要非透明                       | `#fff`                                     |
-| `textLColor`  | `string`  | 左侧文本颜色                              | `#128AFA`                                  |
-| `textRColor`  | `string`  | 右侧文本颜色                              | `#2B2B2B`                                  |
-| `hideHalo`    | `boolean` | 隐藏 `Halo`                               | `false`                                    |
-| `hideCross`   | `boolean` | 隐藏 `Cross`                              | `false`                                    |
-| `type`        | `string`  | 是否使用 `JSON` 输出                      | `image`                                    |
-| `encode`      | `string`  | 使用 `JSON` 输出的格式 (`Buffer`可用格式) | `base64`                                   |
-| `bgImage`     | `File`    | 背景图片 需要使用表单提交                 | `undefined`                                |
-| `bgImageX`    | `Number`  | 背景图片 X 坐标                           | `0`                                        |
-| `bgImageY`    | `Number`  | 背景图片 Y 坐标                           | `0`                                        |
-| `bgImageW`    | `Number`  | 背景图片 宽度                             | `画布宽度` 如果设置了X或Y则为 `画布宽度-X` |
-| `bgImageH`    | `Number`  | 背景图片 高度                             | `画布高度` 如果设置了X或Y则为 `画布高度-Y` |
+| 参数名             | 类型      | 介绍                                      | 默认值                                     |
+| ------------------ | --------- | ----------------------------------------- | ------------------------------------------ |
+| `textL`            | `string`  | 左侧文本                                  | `Blue`                                     |
+| `textR`            | `string`  | 右侧文本                                  | `Archive`                                  |
+| `graphX`           | `number`  | 光环 `X` 方向位移                         | `-15`                                      |
+| `graphY`           | `number`  | 光环 `Y` 方向位移                         | `0`                                        |
+| `transparent`      | `boolean` | 背景透明                                  | `false`                                    |
+| `bgColor`          | `string`  | 背景颜色 需要背景非透明                   | `#fff`                                     |
+| `textLColor`       | `string`  | 左侧文本颜色                              | `#128AFA`                                  |
+| `textRColor`       | `string`  | 右侧文本颜色                              | `#2B2B2B`                                  |
+| `hideHalo`         | `boolean` | 隐藏 `Halo`                               | `false`                                    |
+| `hideCross`        | `boolean` | 隐藏 `Cross`                              | `false`                                    |
+| `type`             | `string`  | 是否使用 `JSON` 输出                      | `image`                                    |
+| `encode`           | `string`  | 使用 `JSON` 输出的格式 (`Buffer`可用格式) | `base64`                                   |
+| `bgImage`          | `File`    | 背景图片 需要使用表单提交 并且 背景非透明 | `undefined`                                |
+| `bgImageX`         | `number`  | 背景图片 X 坐标                           | `0`                                        |
+| `bgImageY`         | `number`  | 背景图片 Y 坐标                           | `0`                                        |
+| `bgImageW`         | `number`  | 背景图片 宽度                             | `画布宽度` 如果设置了X或Y则为 `画布宽度-X` |
+| `bgImageH`         | `number`  | 背景图片 高度                             | `画布高度` 如果设置了X或Y则为 `画布高度-Y` |
+| `fontSize`         | `number`  | 标题字体大小                              | `84`                                       |
+| `scale`            | `number`  | 缩放比例                                  | `1`                                        |
+| `subtitle`         | `string`  | 副标题                                    | `null`                                     |
+| `subtitleFontSize` | `number`  | 副标题大小                                | `36`                                       |
+| `subtitleColor`    | `string`  | 副标题颜色                                | `textRColor`                               |
+| `subtitleAlign`    | `string`  | 副标题对齐方式                            | `center`                                   |
+| `crossColor`       | `string`  | 十字架颜色                                | `#128AFA`                                  |
+| `haloColor`        | `string`  | 光环颜色                                  | `#2B2B2B`                                  |
+| `textBaseLine`     | `number`  | 精确到第二位的小数                        | `0.68`                                     |
+| `horizontalTilt`   | `number`  | 倾斜度 需要是负数                         | `-0.4`                                     |
 
 ## 存在问题
 
