@@ -1,8 +1,9 @@
-FROM huankong233/kkbot-ts
+FROM node:18.19.0-bullseye-slim
 
 WORKDIR /balogo-ts
 
-RUN apk update && apk upgrade
-RUN apk add python3
+RUN apt update && apt upgrade
+RUN apt install python3 -y
+RUN npm install pnpm -g
 
 ENTRYPOINT ["pnpm","run","docker"]

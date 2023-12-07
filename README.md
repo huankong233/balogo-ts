@@ -20,11 +20,11 @@
 
 ### `docker` 部署
 
-1.可以用我的通用镜像 `https://hub.docker.com/r/huankong233/kkbot-ts`
+1.获取镜像 `https://hub.docker.com/r/huankong233/balogo-ts`
 
 2.克隆项目
 
-3.映射项目路径到 `/kkbot-ts` 即可启动
+3.映射项目路径到 `/balogo-ts` 即可启动
 
 ## 请求路径
 
