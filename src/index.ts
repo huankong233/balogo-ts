@@ -13,16 +13,26 @@ app.use(async ctx => {
   const logo = new LogoCanvas(ctx.request.query, ctx.request.body as any)
   const image = await logo.draw()
 
-  if (ctx.request.query.type ?? ctx.request.body.type === 'json') {
-    ctx.body = {
-      code: 200,
-      data: {
-        image: image.toString(ctx.request.query.encode ?? ctx.request.body.encode ?? 'base64')
+  switch (ctx.request.query.type ?? ctx.request.body.type ?? 'image') {
+    case 'image':
+      ctx.set('content-type', 'image/png')
+      ctx.body = image
+      break
+    case 'json':
+      const encode = ctx.request.query.encode ?? ctx.request.body.encode ?? 'base64'
+      ctx.body = {
+        code: 200,
+        data: {
+          image: image.toString(encode)
+        }
       }
-    }
-  } else {
-    ctx.set('content-type', 'image/png')
-    ctx.body = image
+      break
+    default:
+      ctx.body = {
+        code: 400,
+        message: 'type error'
+      }
+      break
   }
 })
 
