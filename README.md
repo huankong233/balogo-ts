@@ -63,5 +63,5 @@
 ## 存在问题
 
 - 存在文本不能过长的问题，已提交 [issues](https://github.com/Automattic/node-canvas/issues/2321) (已使用缓解措施)
-- 存在错误的类型错误，已提交 [pr](https://github.com/Automattic/node-canvas/pull/2322)
+- ~~存在错误的类型错误，已提交 [pr](https://github.com/Automattic/node-canvas/pull/2322)~~ 已合并
 
